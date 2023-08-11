@@ -1,0 +1,24 @@
+{
+  "name": "touch-barry-back",
+  "version": "1.0.0",
+  "description": "Convert your androin device into touch panel which can help you to work with your laptop/computer.",
+  "main": "main.js",
+  "scripts": {
+    "start": "ts-node main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yevhen Irkliievskyi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ngrok": "^5.0.0-beta.2",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.5",
+    "@types/ws": "^8.5.5",
+    "express-http-proxy": "^1.6.3",
+    "ts-node": "^10.9.1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "touch-barry",
+  "version": "1.0.0",
+  "description": "Convert your androin device into touch panel which can help you to work with your laptop/computer.",
+  "scripts": {
+    "start": "concurrently -c magenta,cyan \"npm:start:*\" ",
+    "start:back": "cd back && npm start",
+    "start:front": "cd front && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yevhen Irkliievskyi",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

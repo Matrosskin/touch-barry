@@ -1,0 +1,2 @@
+ACTION=="bind", SUBSYSTEM=="usb", ATTRS{idVendor}=="", ATTRS{idProduct}=="", ENV{DEVTYPE}=="usb_device", RUN+="./bin/touch-barry-connect.sh"
+ACTION=="unbind", ENV{PRODUCT}=="", RUN+="./bin/touch-barry-disconnect.sh"
