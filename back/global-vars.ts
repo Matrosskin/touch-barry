@@ -12,6 +12,10 @@ const globalVars: {
     cpu: {
       usage: [],
       amountOfCores: 0,
+    },
+    battery: {
+      state: '',
+      percentage: 0,
     }
   },
   isNgrokEnabled: false,

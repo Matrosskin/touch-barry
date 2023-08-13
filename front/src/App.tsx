@@ -1,14 +1,11 @@
 import 'antd/dist/reset.css';
 import './App.css';
-import { Button, Tabs } from 'antd';
-import { useAppSelector } from './hooks';
-import { WebSocketStatus } from './slices/websocket-status';
-import { CheckCircleTwoTone, ExclamationCircleTwoTone, LoadingOutlined } from '@ant-design/icons';
+import { Tabs } from 'antd';
 import CpuTabContent from './components/CpuTabContent/CpuTabContent';
+import BatteryStateBtn from './components/BatteryStateBtn/BatteryStateBtn';
+import WSStateBtn from './components/WSStateBtn/WSStateBtn';
 
 function App() {
-  const wsStatus = useAppSelector((state) => state.webSocketStatus.value)
-
   const items = [{
     label: `CPU`,
     key: `cpu`,
@@ -19,11 +16,10 @@ function App() {
     children: <div>Valheim shortcuts tab</div>,
   }]
 
-  const operations = <Button>
-    {wsStatus === WebSocketStatus.OPEN && <CheckCircleTwoTone twoToneColor="#52c41a" />}
-    {wsStatus === WebSocketStatus.CLOSED && <ExclamationCircleTwoTone twoToneColor="#eb2f96" />}
-    {wsStatus === WebSocketStatus.WAITING && <LoadingOutlined />}
-  </Button>
+  const operations = <>
+    <BatteryStateBtn />
+    <WSStateBtn />
+  </>
 
   return (
     <div className="App">

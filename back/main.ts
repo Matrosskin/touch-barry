@@ -3,8 +3,11 @@ import path from 'path'
 import http from 'http'
 import WebSocket from 'ws'
 import globalVars from './global-vars'
+import { monitorBattery } from './src/collect-data/battery'
+import { monitorCpuUsage } from './cpu'
 
-require('./cpu').monitorCpuUsage()
+monitorCpuUsage()
+monitorBattery()
 
 const app = express()
 const deviceRouter = require('./routes/device')

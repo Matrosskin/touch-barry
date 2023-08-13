@@ -10,6 +10,10 @@ const initialState: IDataToShowState = {
     cpu: {
       usage: [],
       amountOfCores: 0
+    },
+    battery: {
+      state: '',
+      percentage: 0,
     }
   },
 }
