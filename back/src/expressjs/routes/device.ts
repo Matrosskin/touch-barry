@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import globalVars from '../global-vars'
+import globalVars from '../../../global-vars'
 
 const router = Router()
 

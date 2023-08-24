@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { dataToShowReducer } from '@touch-barry/shared/slices/dataToShow'
-import { webSocketStatusReducer } from './slices/websocket-status'
+import { dataToShowReducer } from '../shared/slices/dataToShow'
 
 export const store = configureStore({
   reducer: {
-    webSocketStatus: webSocketStatusReducer,
     dataToShow: dataToShowReducer
   },
 })

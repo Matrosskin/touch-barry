@@ -1,5 +1,6 @@
 import { Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 import { useAppSelector } from '../../hooks';
+import s from './CpuTabContent.module.scss'
 
 
 const colors = [
@@ -22,7 +23,7 @@ const colors = [
 ]
 
 function CpuTabContent() {
-  const dataToShow = useAppSelector((state) => state.dataToShow.value)
+  const dataToShow = useAppSelector((state) => state.dataToShow)
 
   if (!dataToShow.cpu.usage[0]) return <></>
 
@@ -31,7 +32,7 @@ function CpuTabContent() {
   const cors = new Array(amountOfCors).fill(null).map((_, index) => index.toString())
 
   return (
-    <ResponsiveContainer width="99%" height={400}>
+    <ResponsiveContainer width="100%" height="100%" className={s.rechartsHeightFix}>
       <LineChart data={dta}>
         {cors.map((c, i) => <Line key={c} type="monotone" dataKey={c} dot={false} isAnimationActive={false}
           stroke={colors[i]} yAxisId="left" />)}

@@ -1,5 +1,7 @@
 import child_process from 'child_process'
-import globalVars from '../../global-vars'
+import { store } from '../store';
+import { setBattery } from '../../shared/slices/dataToShow';
+import { BatteryState, isBatteryState } from '../../shared/constants/BatteryState';
 
 let batteryDeviceId: string | undefined
 
@@ -41,8 +43,10 @@ const handleUpdatedStatus = debounce(() => {
   const state = deviceInfo.find((line) => stateRegExp.test(line))!.replace(stateRegExp, '').trim()
   const percentage = deviceInfo.find((line) => percentageRegExp.test(line))!.replace(percentageRegExp, '').trim().replace('%', '')
 
-  globalVars.dataToShow.battery.state = state
-  globalVars.dataToShow.battery.percentage = parseFloat(percentage)
+  if (!isBatteryState(state)) {
+    throw new Error('Unknown battery state value.');
+  }
+  store.dispatch(setBattery({ state, percentage: parseFloat(percentage) }))
 })
 
 export function monitorBattery() {

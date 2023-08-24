@@ -1,0 +1,3 @@
+export const CPU_MEASURE_INTERVAL = 1500 // msec
+export const CPU_INTERVAL_TO_SHOW = 60 * 1000
+export const CPU_MAX_USAGE_HISTORY = Math.round(CPU_INTERVAL_TO_SHOW / CPU_MEASURE_INTERVAL)

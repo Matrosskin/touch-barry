@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Tooltip } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBatteryEmpty } from '@fortawesome/free-solid-svg-icons/faBatteryEmpty'
 import { faBatteryQuarter } from '@fortawesome/free-solid-svg-icons/faBatteryQuarter'
@@ -8,9 +8,10 @@ import { faBatteryFull } from '@fortawesome/free-solid-svg-icons/faBatteryFull'
 import { faBolt } from '@fortawesome/free-solid-svg-icons/faBolt'
 import { useMemo } from 'react'
 import { useAppSelector } from '../../hooks'
+import { BatteryState } from '@touch-barry/shared/constants/BatteryState';
 
 function BatteryStateBtn() {
-  const { percentage: batteryPercentage, state: batteryState } = useAppSelector((state) => state.dataToShow.value.battery)
+  const { percentage: batteryPercentage, state: batteryState } = useAppSelector((state) => state.dataToShow.battery)
 
   const [batteryIcon, batteryColor] = useMemo(() => {
     if (batteryPercentage < 25) {
@@ -30,12 +31,14 @@ function BatteryStateBtn() {
   }, [batteryPercentage])
 
   return (
-    <Button size='large'>
-      <span className='fa-layers fa-fw'>
-        <FontAwesomeIcon icon={batteryIcon} color={batteryColor} />
-        {['charging', 'fully-charged'].includes(batteryState) && <FontAwesomeIcon icon={faBolt} transform="shrink-6" color='yellow' />}
-      </span>
-    </Button>
+    <Tooltip placement="bottom" title={`${batteryPercentage}%`}>
+      <Button size='large'>
+        <span className='fa-layers fa-fw'>
+          <FontAwesomeIcon icon={batteryIcon} color={batteryColor} />
+          {[BatteryState.CHARGING, BatteryState.FULLY_CHARGED].includes(batteryState) && <FontAwesomeIcon icon={faBolt} transform="shrink-6" color='yellow' />}
+        </span>
+      </Button>
+    </Tooltip>
   );
 }
 

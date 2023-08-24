@@ -1,23 +1,12 @@
-import { DataToShow } from '@common/interfaces/DataToShow';
+import type { WebSocket } from 'ws'
 
 const globalVars: {
   isDeviceConnected: boolean
-  activeWSConnections: any[]
-  dataToShow: DataToShow
+  activeWSConnections: WebSocket[]
   isNgrokEnabled: boolean
 } = {
   isDeviceConnected: true,
   activeWSConnections: [],
-  dataToShow: {
-    cpu: {
-      usage: [],
-      amountOfCores: 0,
-    },
-    battery: {
-      state: '',
-      percentage: 0,
-    }
-  },
   isNgrokEnabled: false,
 }
 

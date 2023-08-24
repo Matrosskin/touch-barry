@@ -19,10 +19,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "paths": { "@common/*": ["../common/*"], },
+    "paths": { "@touch-barry/shared/*": ["../back/shared/*"] }
   },
   "include": [
     "src",
-    "../common/**/*.ts"
+    "../back/shared/**/*.ts"
   ]
 }

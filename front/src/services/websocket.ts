@@ -1,8 +1,9 @@
-import { setDataToShow } from "../slices/dataToShow";
+// import { setDataToShow } from "../slices/dataToShow";
+import { setDataToShow } from '@touch-barry/shared/slices/dataToShow';
 import { setWSStatusClosed, setWSStatusOpen, setWSStatusWaiting } from '../slices/websocket-status';
 import { store } from '../store';
 
-const wsc = new WebSocket('ws://localhost:8080');
+const wsc = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}`);
 store.dispatch(setWSStatusWaiting())
 
 let isWSReady = false;
