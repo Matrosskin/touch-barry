@@ -6,6 +6,7 @@ import CpuTabContent from './components/CpuTabContent/CpuTabContent';
 import BatteryStateBtn from './components/BatteryStateBtn/BatteryStateBtn';
 import WSStateBtn from './components/WSStateBtn/WSStateBtn';
 import { MainTabPanelContainer } from './components/MainTabPanelContainer/MainTabPanelContainer';
+import { ShortCatsTabContent } from './components/ShortCatsTabContent/ShortCatsTabContent';
 
 function App() {
   const items = [{
@@ -15,9 +16,11 @@ function App() {
       <CpuTabContent />
     </MainTabPanelContainer>,
   }, {
-    label: 'Valheim',
-    key: 'valheim',
-    children: <MainTabPanelContainer>Valheim shortcuts tab</MainTabPanelContainer>,
+    label: 'ShortCats',
+    key: 'short-cats',
+    children: <MainTabPanelContainer>
+      <ShortCatsTabContent />
+    </MainTabPanelContainer>,
   }]
 
   const operations = <>

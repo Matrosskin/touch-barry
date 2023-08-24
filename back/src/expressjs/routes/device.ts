@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import globalVars from '../../../global-vars'
 
-const router = Router()
+export const deviceRouter = Router()
 
-router.get('/connected', async (req, res) => {
+deviceRouter.get('/connected', async (req, res) => {
   console.error('device-connected');
   if (globalVars.isNgrokEnabled) {
     // TODO: Initially I wanted to use ngrok to access the web ui from the phone,
@@ -20,7 +20,7 @@ router.get('/connected', async (req, res) => {
   res.send('OK')
 })
 
-router.get('/disconnected', (req, res) => {
+deviceRouter.get('/disconnected', (req, res) => {
   console.error('device-disconnected')
   if (globalVars.isNgrokEnabled) {
     const ngrok = require('ngrok')
@@ -31,5 +31,3 @@ router.get('/disconnected', (req, res) => {
   globalVars.isDeviceConnected = false
   res.send('OK')
 })
-
-module.exports = router

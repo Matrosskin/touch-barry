@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "express": "^4.18.2",
     "ngrok": "^5.0.0-beta.2",
+    "robotjs": "^0.6.0",
     "ws": "^8.13.0"
   },
   "devDependencies": {
