@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Convert your androin device into touch panel which can help you to work with your laptop/computer.",
   "scripts": {
-    "start": "concurrently -c magenta,cyan \"npm:start:*\" ",
+    "start": "concurrently -c magenta,cyan \"npm:start:back\" \"npm:start:front\" --kill-others",
     "start:back": "cd back && npm start",
     "start:front": "cd front && npm start",
+    "start:ui-proxy": "cd ui-proxy && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yevhen Irkliievskyi",

@@ -1,25 +1,30 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'antd/dist/reset.css';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { ConfigProvider, theme } from 'antd';
+import { App as AntdApp, ConfigProvider, theme } from 'antd';
+import { FirebaseReadyProvider } from './components/FirebaseReadyProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   // <React.StrictMode>
+  <FirebaseReadyProvider>
     <Provider store={store}>
       <ConfigProvider
         theme={{
           algorithm: theme.darkAlgorithm,
         }}>
-        <App />
+        <AntdApp>
+          <App />
+        </AntdApp>
       </ConfigProvider>
     </Provider>
+  </FirebaseReadyProvider>
   // </React.StrictMode>
 );
 

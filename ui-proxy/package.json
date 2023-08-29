@@ -2,6 +2,7 @@
   "name": "ui-proxy",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
@@ -22,7 +23,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently -c magenta,cyan \"npm:start:*\" --kill-others",
+    "start:react": "react-scripts start",
+    "start:firebase:fn": "cd functions && npm run build:watch",
+    "start:firebase:all": "firebase emulators:start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
