@@ -27,6 +27,12 @@
     ],
     "rewrites": [
       {
+        "source": "/updateTouchBarryTunnel",
+        "function": "updateTouchBarryTunnel",
+        "region": "europe-west1",
+        "pinTag": true
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

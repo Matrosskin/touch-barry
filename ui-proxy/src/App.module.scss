@@ -2,6 +2,9 @@
   background-color: #423939;
   height: 100vh;
   overflow-y: auto;
+  // TODO: Play with paddings because they help for simple pages, but page with iframe looks bad.
+  padding-left: 10px;
+  padding-right: 10px;
 
   display: flex;
   flex-direction: column;

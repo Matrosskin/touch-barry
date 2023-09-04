@@ -7,9 +7,12 @@
 
 # testing
 /coverage
+/dev-dump
 
 # production
 /build
+/src/firebaseConfig.ts
+/.firebase/
 
 # misc
 .DS_Store

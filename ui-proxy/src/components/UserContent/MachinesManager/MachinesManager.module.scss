@@ -1,0 +1,41 @@
+.toolbar {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolbarSpace {
+  flex: 1;
+}
+
+.listContainer {
+  width: 100%;
+  max-width: 600px;
+  border: none;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  border-bottom: 1px solid #424242;
+  padding-bottom: 1px;
+
+  .listItemText {
+    flex: 1;
+  }
+
+  .listItemActions {
+    flex: 0 0 fit-content;
+  }
+}
+
+.confirmDialog {
+  width: 99vw;
+  max-width: 600px;
+}

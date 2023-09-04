@@ -2,7 +2,6 @@ import express from 'express'
 import path from 'path'
 import globalVars from '../../global-vars'
 import { apiRouter } from './routes/api'
-import { deviceRouter } from'./routes/device'
 
 export function configureExpressApp(app: ReturnType<typeof express>) {
     // TODO: Need to work on this logic more. Initially it was implemented, but after a few side changes it became not fully correct.
@@ -11,7 +10,6 @@ export function configureExpressApp(app: ReturnType<typeof express>) {
 
   const IS_PROD = process.env.NODE_ENV === 'production'
 
-  app.use('/device', deviceRouter)
   app.use('/api', apiRouter) // TODO: This route should be secured!!!
 
   app.use((req, res, next) => {

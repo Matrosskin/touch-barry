@@ -23,10 +23,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently -c magenta,cyan \"npm:start:*\" --kill-others",
+    "start": "concurrently -c magenta,cyan \"npm:start:firebase:fn\" \"npm:start:firebase:all\" --kill-others",
     "start:react": "react-scripts start",
     "start:firebase:fn": "cd functions && npm run build:watch",
-    "start:firebase:all": "firebase emulators:start",
+    "start:firebase:all": "firebase emulators:exec \"react-scripts start\" --ui --import=dev-dump",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
